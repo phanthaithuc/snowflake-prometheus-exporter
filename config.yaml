@@ -1,0 +1,5 @@
+default_fetch_interval: 60
+metrics:
+  - name: STORAGE_USAGE
+    help: storage usage in bytes
+    statement: SELECT STAGE_BYTES, STORAGE_BYTES FROM snowflake.account_usage.storage_usage WHERE usage_date >= DATEADD('DAYS',-7,CURRENT_DATE()) ORDER BY usage_date;
